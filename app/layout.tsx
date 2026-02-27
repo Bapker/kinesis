@@ -1,12 +1,5 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import './globals.css';
-
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
 
 export const metadata: Metadata = {
   title: 'Kinezis — Центр функциональной реабилитации | Астана',
@@ -21,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${geistSans.variable} bg-[#0F0F0F] text-white antialiased`}>
+      <body className="bg-[#2F2F2F] text-white antialiased">
         {children}
       </body>
     </html>

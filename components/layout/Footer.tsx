@@ -14,13 +14,13 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-10 mb-12">
           <div>
-            <span className="text-white font-black text-xl block mb-3">KINEZIS</span>
-            <p className="text-white/35 text-sm leading-relaxed mb-6 max-w-md">
+            <span className="text-white font-black text-[22px] block mb-3">KINEZIS</span>
+            <p className="kz-body text-white/35 mb-6 max-w-md">
               Центр функциональной реабилитации в Астане. Работаем с причиной боли и сопровождаем на каждом этапе восстановления.
             </p>
 
-            <h4 className="font-bold mb-4 text-sm uppercase tracking-wider text-white/50">Контакты</h4>
-            <ul className="space-y-3 text-white/35 text-sm mb-8">
+            <h4 className="font-bold mb-4 text-[18px] uppercase tracking-wider text-white/50">Контакты</h4>
+            <ul className="space-y-3 text-white/35 text-[18px] mb-8">
               <li>
                 <a href={`tel:+${phoneRaw}`} className="hover:text-[#FFD400] transition-colors">
                   {phoneFormatted}
@@ -58,8 +58,8 @@ export default function Footer() {
               </li>
             </ul>
 
-            <h4 className="font-bold mb-4 text-sm uppercase tracking-wider text-white/50">Навигация</h4>
-            <ul className="space-y-3 text-white/35 text-sm">
+            <h4 className="font-bold mb-4 text-[18px] uppercase tracking-wider text-white/50">Навигация</h4>
+            <ul className="space-y-3 text-white/35 text-[18px]">
               {[
                 { label: 'Услуги', id: 'services' },
                 { label: 'Как проходит диагностика', id: 'how-it-works' },
@@ -76,7 +76,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold mb-4 text-sm uppercase tracking-wider text-white/50">Мы на карте 2GIS</h4>
+            <h4 className="font-bold mb-4 text-[18px] uppercase tracking-wider text-white/50">Мы на карте 2GIS</h4>
             <div className="rounded-2xl overflow-hidden border border-white/10 h-[340px]">
               <iframe
                 src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22city%22%3A%22astana%22%2C%22id%22%3A%2270000001032687222%22%2C%22zoom%22%3A16%7D"

@@ -64,13 +64,13 @@ export default function TeamSection({ openModal }: TeamSectionProps) {
   }, []);
 
   return (
-    <section ref={sectionRef} id="team" className="relative section-padding bg-[#0F0F0F]">
+    <section ref={sectionRef} id="team" className="relative section-padding bg-[#2F2F2F]">
       <div className="divider-glow absolute top-0 left-0 right-0" />
       <div className="container mx-auto px-4 md:px-6">
-        <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-black text-white text-center mb-6">
+        <h2 ref={titleRef} className="kz-h2 text-white text-center mb-6">
           Наши специалисты
         </h2>
-        <p className="text-center text-white/45 mb-12 max-w-3xl mx-auto">
+        <p className="kz-body text-center text-white/45 mb-12 max-w-3xl mx-auto">
           С вами работают специалисты по реабилитации и движению.
         </p>
 
@@ -81,10 +81,10 @@ export default function TeamSection({ openModal }: TeamSectionProps) {
                 <Image src={s.src} alt={s.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
               <div className="p-6 md:p-7">
-                <h3 className="text-white font-black text-2xl mb-2">{s.name}</h3>
-                <p className="text-[#FFD400] text-sm mb-2">{s.role}</p>
-                <p className="text-white/60 text-sm mb-2">{s.experience}</p>
-                <p className="text-white/65 text-sm leading-relaxed mb-6">{s.specialization}</p>
+                <h3 className="kz-h3 text-white mb-2">{s.name}</h3>
+                <p className="text-[#FFD400] text-[18px] mb-2">{s.role}</p>
+                <p className="kz-body text-white/60 mb-2">{s.experience}</p>
+                <p className="kz-body text-white/65 mb-6">{s.specialization}</p>
                 <button
                   onClick={openModal}
                   className="w-full border border-[#FFD400] text-[#FFD400] font-bold py-3.5 rounded-full hover:bg-[#FFD400]/10 transition-colors min-h-[48px]"

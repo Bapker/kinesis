@@ -23,55 +23,32 @@ const painPhotos = [
 
 export default function PainSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const listRef = useRef<HTMLDivElement>(null);
-  const photosRef = useRef<HTMLDivElement>(null);
+  const titleRef   = useRef<HTMLHeadingElement>(null);
+  const listRef    = useRef<HTMLDivElement>(null);
+  const trackRef   = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        titleRef.current,
+      gsap.fromTo(titleRef.current,
         { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' },
-        }
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } }
       );
 
       if (listRef.current) {
-        gsap.fromTo(
-          Array.from(listRef.current.children),
+        gsap.fromTo(Array.from(listRef.current.children),
           { y: 20, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.45,
-            stagger: 0.08,
-            scrollTrigger: { trigger: listRef.current, start: 'top 75%' },
-          }
+          { y: 0, opacity: 1, duration: 0.45, stagger: 0.08,
+            scrollTrigger: { trigger: listRef.current, start: 'top 75%' } }
         );
       }
 
-      if (photosRef.current) {
-        gsap.fromTo(
-          Array.from(photosRef.current.children),
-          { y: 30, opacity: 0, scale: 0.96 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            ease: 'power2.out',
-            stagger: 0.08,
-            scrollTrigger: { trigger: photosRef.current, start: 'top 75%' },
-          }
-        );
-      }
+      gsap.fromTo(trackRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out',
+          scrollTrigger: { trigger: trackRef.current, start: 'top 80%' } }
+      );
     });
-
     return () => ctx.revert();
   }, []);
 
@@ -79,29 +56,50 @@ export default function PainSection() {
     <section ref={sectionRef} className="relative section-padding bg-[#2F2F2F]">
       <div className="divider-glow absolute top-0 left-0 right-0" />
       <div className="container mx-auto px-4 md:px-6">
-        <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-black text-white text-center mb-14">
+        <h2 ref={titleRef} className="kz-h2 text-white text-center mb-14">
           Что вас беспокоит?
         </h2>
-
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
-          <div ref={listRef} className="glass-card rounded-3xl p-7 md:p-9 space-y-4">
+        <div className='flex gap-12 items-stretch'>
+          {/* Pain list */}
+          <div ref={listRef} style={{flex: '1 1 0%'}} className="flex flex-col justify-between glass-card rounded-3xl p-7 md:p-9 space-y-4 max-w-6xl mx-auto">
             {pains.map(item => (
-              <div key={item} className="flex items-start gap-3">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FFD400] mt-2 shrink-0" />
-                <p className="text-white/80 leading-relaxed">{item}</p>
+              <div key={item} className="flex items-center gap-5">
+                <span className="w-4 h-4 rounded-full border-[#FFD400] border-[3px] shrink-0" />
+                <p className="kz-body text-white/80 tracking-[1px]">{item}</p>
               </div>
             ))}
           </div>
 
-          <div ref={photosRef} className="grid sm:grid-cols-2 gap-4">
-            {painPhotos.map(({ src, label }) => (
-              <div key={src} className="relative h-56 rounded-2xl overflow-hidden border border-white/10">
-                <Image src={src} alt={label} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/75 to-transparent">
-                  <p className="text-white text-sm font-semibold">{label}</p>
-                </div>
+          {/* Marquee carousel */}
+          <div ref={trackRef} style={{flex: '2 1 0%'}} className="relative overflow-hidden [--gap:1rem] [--duration:18s]">
+            {/* fade edges */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-[#2F2F2F] to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-[#2F2F2F] to-transparent" />
+
+            <div className="group flex [gap:var(--gap)]">
+              <div className="animate-marquee flex shrink-0 [gap:var(--gap)]">
+                {[...Array(2)].map((_, setIndex) =>
+                  painPhotos.map(({ src, label }, i) => (
+                    <div
+                      key={`${setIndex}-${i}`}
+                      className="relative h-[500px] w-72 shrink-0 rounded-2xl overflow-hidden border border-white/10"
+                    >
+                      <Image
+                        src={src}
+                        alt={label}
+                        fill
+                        className="object-cover"
+                        sizes="288px"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/80 to-transparent">
+                        <p className="text-white text-[18px] font-semibold tracking-[1px] leading-snug">{label}</p>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
-            ))}
+            </div>
+          
           </div>
         </div>
       </div>

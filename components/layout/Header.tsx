@@ -29,11 +29,8 @@ export default function Header({ openModal }: HeaderProps) {
   };
 
   const navLinks = [
-    { label: 'Главная',      id: 'top'          },
-    { label: 'Диагностика',  id: 'how-it-works' },
-    { label: 'Специалисты',  id: 'team'         },
-    { label: 'Отзывы',       id: 'reviews'      },
-    { label: 'Контакты',     id: 'contacts'     },
+    { label: 'Главная', id: 'top' },
+    { label: 'Диагностика', id: 'how-it-works' },
   ];
 
   return (
@@ -50,15 +47,15 @@ export default function Header({ openModal }: HeaderProps) {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-2 shrink-0"
             >
-              <span className="text-white font-black text-lg tracking-tight">KINEZIS</span>
-              <span className="text-white/30 text-xs hidden sm:block">Центр реабилитации</span>
+              <span className="text-white font-black text-[20px] tracking-[2px]">KINEZIS</span>
+              <span className="text-white/30 text-[18px] tracking-[1px] hidden sm:block">Центр реабилитации</span>
             </button>
 
             <nav className="hidden lg:flex items-center gap-6 flex-1 justify-center">
               {navLinks.map(l => (
                 <button
                   key={l.id} onClick={() => scrollTo(l.id)}
-                  className="text-white/60 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider"
+                  className="text-white/60 tracking-[2px] hover:text-white transition-colors text-[15px] font-medium uppercase"
                 >
                   {l.label}
                 </button>
@@ -68,7 +65,7 @@ export default function Header({ openModal }: HeaderProps) {
             <div className="flex items-center gap-3">
               <button
                 onClick={openModal}
-                className="hidden sm:block bg-[#FFD400] text-black font-black px-6 py-2.5 rounded-full text-sm hover:brightness-105 hover:scale-[1.02] transition-all shrink-0 min-h-[48px]"
+                className="hidden sm:block tracking-[1px] bg-[#FFD400] text-black font-black px-6 py-1 rounded-full text-[16px] hover:brightness-105 hover:scale-[1.02] transition-all shrink-0 min-h-[48px]"
               >
                 Записаться
               </button>
@@ -106,14 +103,14 @@ export default function Header({ openModal }: HeaderProps) {
           {navLinks.map(l => (
             <button
               key={l.id} onClick={() => scrollTo(l.id)}
-              className="text-left px-4 py-3 rounded-xl text-white/60 hover:text-white hover:bg-white/5 text-sm uppercase tracking-wider font-medium transition-colors min-h-[48px]"
+              className="text-left px-4 py-3 rounded-xl text-white/60 hover:text-white hover:bg-white/5 text-[18px] uppercase tracking-wider font-medium transition-colors min-h-[48px]"
             >
               {l.label}
             </button>
           ))}
           <button
             onClick={() => { setSidebarOpen(false); openModal(); }}
-            className="mt-4 bg-[#FFD400] text-black font-black py-3 rounded-full text-sm min-h-[48px]"
+            className="mt-4 bg-[#FFD400] text-black font-black py-3 rounded-full text-[18px] min-h-[48px]"
           >
             Записаться
           </button>

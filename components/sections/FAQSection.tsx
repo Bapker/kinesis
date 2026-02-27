@@ -49,7 +49,7 @@ export default function FAQSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative section-padding bg-[#0F0F0F]">
+    <section ref={sectionRef} className="relative section-padding bg-[#2F2F2F]">
       <div className="divider-glow absolute top-0 left-0 right-0" />
       <div className="container mx-auto px-4 md:px-6">
 

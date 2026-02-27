@@ -42,7 +42,7 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0F0F0F]">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#2F2F2F]">
 
       <div className="absolute inset-0 opacity-90">
         <Image
@@ -52,7 +52,7 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
           className="object-cover object-center"
         />
         <div className="absolute inset-0 hidden md:block"
-          style={{ background: 'linear-gradient(to right, #0F0F0F 40%, rgba(15,15,15,0.2) 100%)' }} />
+          style={{ background: 'linear-gradient(to right, #2F2F2F 40%, rgba(15,15,15,0.2) 100%)' }} />
         <div className="absolute inset-0 md:hidden"
           style={{ background: 'linear-gradient(to bottom, #0F0F0F, rgba(15,15,15,0.7), #0F0F0F)' }} />
       </div>
@@ -64,18 +64,18 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
         <div className="max-w-2xl">
 
           <div ref={badgeRef} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FFD400]/30 bg-[#FFD400]/5 mb-8">
-            <span className="text-[#FFD400] text-sm font-medium uppercase tracking-wide">
+            <span className="text-[#FFD400] text-[16px] font-medium uppercase tracking-wide">
               Функциональная диагностика • KinezisLife
             </span>
           </div>
 
-          <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-[68px] font-black text-white leading-[0.95] mb-6">
+          <h1 ref={titleRef} className="kz-h1 tracking-[2px] text-white mb-6">
             Диагностика и восстановление
             <br />
             <span className="text-[#FFD400]">опорно-двигательного аппарата</span>
           </h1>
 
-          <p ref={subtitleRef} className="text-lg md:text-xl text-white/50 mb-10 leading-relaxed">
+          <p ref={subtitleRef} className="kz-body text-white/50 mb-10">
             Найдём причину боли и подберём программу восстановления
             без таблеток и операций.
           </p>
@@ -86,7 +86,7 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
               'Индивидуальная программа восстановления',
               'Работа с причиной боли, а не с симптомами',
             ].map(item => (
-              <li key={item} className="flex items-start gap-3 text-white/75">
+              <li key={item} className="kz-body flex items-start gap-3 text-white/75">
                 <span className="w-2 h-2 rounded-full bg-[#FFD400] mt-2.5 shrink-0" />
                 <span>{item}</span>
               </li>

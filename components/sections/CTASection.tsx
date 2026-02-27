@@ -76,7 +76,7 @@ export default function CTASection({ openModal }: CTASectionProps) {
   }, [remainingSeconds]);
 
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-36 bg-[#0F0F0F] overflow-hidden text-center">
+    <section ref={sectionRef} className="relative py-24 md:py-36 bg-[#2F2F2F] overflow-hidden text-center">
       <div className="divider-glow absolute top-0 left-0 right-0" />
 
       <div
@@ -85,20 +85,20 @@ export default function CTASection({ openModal }: CTASectionProps) {
       />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-5 leading-tight">
+        <h2 ref={titleRef} className="kz-h2 text-white mb-5 leading-tight">
           Спецпредложение только для вас
         </h2>
 
-        <p ref={subtitleRef} className="text-lg md:text-xl text-white/45 mb-5 max-w-3xl mx-auto leading-relaxed">
+        <p ref={subtitleRef} className="kz-body text-white/45 mb-5 max-w-3xl mx-auto">
           Диагностика со скидкой, которой ещё не было.
         </p>
 
-        <p className="text-[#FFD400] font-semibold mb-8">
+        <p className="kz-body text-[#FFD400] font-semibold mb-8">
           Бонусом получите файл с рекомендациями по лечебной физкультуре.
         </p>
 
         <div className="inline-flex items-center justify-center px-8 py-4 rounded-2xl border border-[#FFD400]/30 bg-[#FFD400]/10 mb-10">
-          <span className="text-white/70 text-sm uppercase tracking-wider mr-3">До конца акции</span>
+          <span className="text-white/70 text-[18px] uppercase tracking-wider mr-3">До конца акции</span>
           <span className="text-[#FFD400] text-3xl md:text-4xl font-black">{timerText}</span>
         </div>
 
