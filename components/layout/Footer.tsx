@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const phoneRaw = '77479415057';
 const phoneFormatted = '+7 747 941 5057';
@@ -12,9 +13,15 @@ export default function Footer() {
     <footer id="contacts" className="relative bg-[#0A0A0A] text-white pt-16 pb-8">
       <div className="divider-glow absolute top-0 left-0 right-0" />
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid lg:grid-cols-2 gap-10 mb-12">
+        <div className="mb-12 max-w-3xl">
           <div>
-            <span className="text-white font-black text-[22px] block mb-3">KINEZIS</span>
+            <Image
+              src="/logos/logo_white.png"
+              alt="Kinezis"
+              width={170}
+              height={46}
+              className="h-9 w-auto mb-3"
+            />
             <p className="kz-body text-white/35 mb-6 max-w-md">
               Центр функциональной реабилитации в Астане. Работаем с причиной боли и сопровождаем на каждом этапе восстановления.
             </p>
@@ -46,16 +53,6 @@ export default function Footer() {
                   Instagram
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://2gis.kz/astana/firm/70000001032687222"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#FFD400] transition-colors"
-                >
-                  Карточка центра в 2GIS
-                </a>
-              </li>
             </ul>
 
             <h4 className="font-bold mb-4 text-[18px] uppercase tracking-wider text-white/50">Навигация</h4>
@@ -73,20 +70,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-4 text-[18px] uppercase tracking-wider text-white/50">Мы на карте 2GIS</h4>
-            <div className="rounded-2xl overflow-hidden border border-white/10 h-[340px]">
-              <iframe
-                src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22city%22%3A%22astana%22%2C%22id%22%3A%2270000001032687222%22%2C%22zoom%22%3A16%7D"
-                title="KinezisLife на карте 2GIS"
-                width="100%"
-                height="100%"
-                loading="lazy"
-                style={{ border: 0 }}
-              />
-            </div>
           </div>
         </div>
 

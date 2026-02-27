@@ -13,16 +13,16 @@ interface TeamSectionProps {
 const specialists = [
   {
     src: '/photos_kinezis/8block/1.jpg',
-    name: 'Имя Фамилия',
-    role: 'Врач-реабилитолог / Кинезиотерапевт',
-    experience: 'Опыт: уточняется',
+    name: 'Жданов Андрей Эрнстович',
+    role: 'Врач-реабилитолог',
+    experience: 'Стаж более 20 лет',
     specialization: 'Специализация: боль в спине, суставы, восстановление после травм',
   },
   {
     src: '/photos_kinezis/8block/2.jpg',
-    name: 'Имя Фамилия',
-    role: 'Врач-реабилитолог / Кинезиотерапевт',
-    experience: 'Опыт: уточняется',
+    name: 'Жүніс Арман Нурланұлы',
+    role: 'Врач-реабилитолог, онколог-маммолог',
+    experience: 'Стаж более 3 лет',
     specialization: 'Специализация: боль в спине, суставы, восстановление после травм',
   },
 ];
@@ -76,15 +76,20 @@ export default function TeamSection({ openModal }: TeamSectionProps) {
 
         <div ref={cardsRef} className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
           {specialists.map(s => (
-            <article key={s.src} className="glass-card-hover rounded-3xl overflow-hidden">
-              <div className="relative h-80">
-                <Image src={s.src} alt={s.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 50vw" />
-              </div>
-              <div className="p-6 md:p-7">
+            <article key={s.src} className="relative rounded-3xl overflow-hidden border border-white/10 min-h-[430px] sm:min-h-[500px] lg:min-h-[560px]">
+              <Image
+                src={s.src}
+                alt={s.name}
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0F0F0F]/95 via-[#0F0F0F]/45 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-7">
                 <h3 className="kz-h3 text-white mb-2">{s.name}</h3>
                 <p className="text-[#FFD400] text-[18px] mb-2">{s.role}</p>
-                <p className="kz-body text-white/60 mb-2">{s.experience}</p>
-                <p className="kz-body text-white/65 mb-6">{s.specialization}</p>
+                <p className="kz-body text-white/70 mb-2">{s.experience}</p>
+                <p className="kz-body text-white/80 mb-6">{s.specialization}</p>
                 <button
                   onClick={openModal}
                   className="w-full border border-[#FFD400] text-[#FFD400] font-bold py-3.5 rounded-full hover:bg-[#FFD400]/10 transition-colors min-h-[48px]"

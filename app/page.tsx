@@ -13,8 +13,8 @@ import TeamSection from '@/components/sections/TeamSection';
 import ReviewsSection from '@/components/sections/ReviewsSection';
 import CTASection from '@/components/sections/CTASection';
 import TwoGisSection from '@/components/sections/TwoGisSection';
+import ContactMapSection from '@/components/sections/ContactMapSection';
 import Modal from '@/components/ui/Modal';
-import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export default function HomePage() {
   const [showModal, setShowModal] = useState(false);
@@ -34,10 +34,10 @@ export default function HomePage() {
         <TeamSection openModal={open} />
         <CTASection openModal={open} />
         <TwoGisSection />
+        <ContactMapSection openModal={open} />
       </main>
       <Footer />
       <Modal showModal={showModal} setShowModal={setShowModal} />
-      <WhatsAppButton />
     </>
   );
 }

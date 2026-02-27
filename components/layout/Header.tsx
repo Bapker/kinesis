@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 interface HeaderProps { openModal: () => void; }
 
@@ -45,10 +46,17 @@ export default function Header({ openModal }: HeaderProps) {
 
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="flex items-center gap-2 shrink-0"
+              className="flex items-center gap-3 shrink-0"
             >
-              <span className="text-white font-black text-[20px] tracking-[2px]">KINEZIS</span>
-              <span className="text-white/30 text-[18px] tracking-[1px] hidden sm:block">Центр реабилитации</span>
+              <Image
+                src="/logos/logo_white.png"
+                alt="Kinezis"
+                width={148}
+                height={40}
+                priority
+                className="h-7 w-auto sm:h-8"
+              />
+              <span className="text-white/30 text-[16px] tracking-[1px] hidden xl:block">Центр реабилитации</span>
             </button>
 
             <nav className="hidden lg:flex items-center gap-6 flex-1 justify-center">
@@ -90,7 +98,13 @@ export default function Header({ openModal }: HeaderProps) {
 
       <div className={`fixed top-0 right-0 z-[70] h-full w-72 bg-[#0F0F0F] border-l border-white/10 flex flex-col lg:hidden transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
-          <span className="text-white font-black">KINEZIS</span>
+          <Image
+            src="/logos/logo_yellow.png"
+            alt="Kinezis"
+            width={132}
+            height={34}
+            className="h-7 w-auto"
+          />
           <button
             className="w-8 h-8 flex items-center justify-center text-white/60 hover:text-white"
             onClick={() => setSidebarOpen(false)}
