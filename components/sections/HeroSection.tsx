@@ -14,7 +14,7 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
   const badgeRef    = useRef<HTMLDivElement>(null);
   const titleRef    = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const statsRef    = useRef<HTMLDivElement>(null);
+  const bulletsRef  = useRef<HTMLUListElement>(null);
   const buttonsRef  = useRef<HTMLDivElement>(null);
   const scrollRef   = useRef<HTMLDivElement>(null);
 
@@ -26,8 +26,8 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
       gsap.fromTo(titleRef.current,    { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: 1.0 });
       gsap.fromTo(subtitleRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 1.3 });
 
-      if (statsRef.current) {
-        gsap.fromTo(Array.from(statsRef.current.children),
+      if (bulletsRef.current) {
+        gsap.fromTo(Array.from(bulletsRef.current.children),
           { y: 20, opacity: 0 },
           { y: 0, opacity: 1, stagger: 0.08, delay: 1.5, duration: 0.5, ease: 'power2.out' }
         );
@@ -46,8 +46,8 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
 
       <div className="absolute inset-0 opacity-90">
         <Image
-          src="/images/hero-spine.png"
-          alt="Реабилитация позвоночника"
+          src="/photos_kinezis/1block/1.png"
+          alt="Диагностика опорно-двигательного аппарата"
           fill priority
           className="object-cover object-center"
         />
@@ -65,41 +65,46 @@ export default function HeroSection({ openModal }: HeroSectionProps) {
 
           <div ref={badgeRef} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FFD400]/30 bg-[#FFD400]/5 mb-8">
             <span className="text-[#FFD400] text-sm font-medium uppercase tracking-wide">
-              Функциональная реабилитация • Астана
+              Функциональная диагностика • KinezisLife
             </span>
           </div>
 
           <h1 ref={titleRef} className="text-5xl md:text-6xl lg:text-[68px] font-black text-white leading-[0.95] mb-6">
-            Верните тело к жизни —<br />
-            без боли, без страха,<br />
-            <span className="text-[#FFD400]">навсегда</span>
+            Диагностика и восстановление
+            <br />
+            <span className="text-[#FFD400]">опорно-двигательного аппарата</span>
           </h1>
 
           <p ref={subtitleRef} className="text-lg md:text-xl text-white/50 mb-10 leading-relaxed">
-            Индивидуальные программы восстановления после травм, операций и хронических болей.
-            Работаем с причиной, а не симптомом.
+            Найдём причину боли и подберём программу восстановления
+            без таблеток и операций.
           </p>
 
-          <div ref={statsRef} className="flex flex-wrap gap-3 mb-10">
-            {['Более 800 пациентов', 'Опыт 8+ лет', '98% рекомендуют', 'Консультация бесплатно'].map((s, i) => (
-              <div key={i} className="px-4 py-2 rounded-full border border-[#FFD400]/25 bg-[#FFD400]/[0.08]">
-                <span className="text-[#FFD400] text-sm font-medium">{s}</span>
-              </div>
+          <ul ref={bulletsRef} className="space-y-3 mb-10">
+            {[
+              'Точная функциональная диагностика',
+              'Индивидуальная программа восстановления',
+              'Работа с причиной боли, а не с симптомами',
+            ].map(item => (
+              <li key={item} className="flex items-start gap-3 text-white/75">
+                <span className="w-2 h-2 rounded-full bg-[#FFD400] mt-2.5 shrink-0" />
+                <span>{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={openModal}
               className="bg-[#FFD400] text-black font-black px-8 py-4 rounded-full text-lg hover:brightness-105 hover:scale-[1.02] transition-all min-h-[48px]"
             >
-              Записаться на консультацию
+              Записаться на диагностику
             </button>
             <button
-              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={openModal}
               className="bg-white/5 text-white font-bold px-8 py-4 rounded-full text-lg border border-white/[0.15] hover:bg-white/10 transition-all min-h-[48px]"
             >
-              Узнать о программах
+              Получить консультацию врача
             </button>
           </div>
         </div>

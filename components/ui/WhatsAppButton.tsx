@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 
 export default function WhatsAppButton() {
   const buttonRef = useRef<HTMLAnchorElement>(null);
+  const phone = '77479415057';
 
   useEffect(() => {
     if (!buttonRef.current) return;
@@ -15,7 +16,7 @@ export default function WhatsAppButton() {
   return (
     <a
       ref={buttonRef}
-      href="https://wa.me/77XXXXXXXXX"
+      href={`https://wa.me/${phone}`}
       target="_blank" rel="noopener noreferrer"
       aria-label="Написать в WhatsApp"
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-2xl pulse-ring"

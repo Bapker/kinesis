@@ -2,15 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 :root {
   --yellow: #FFD400;
   --black: #0F0F0F;
   --graphite: #2F2F2F;
 }
 
-* { font-family: 'Inter', sans-serif; }
+* { font-family: var(--font-geist-sans), sans-serif; }
 
 .section-padding { padding: 96px 0; }
 @media (min-width: 768px) { .section-padding { padding: 128px 0; } }

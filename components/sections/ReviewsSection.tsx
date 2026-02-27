@@ -45,7 +45,7 @@ export default function ReviewsSection() {
       <div className="container mx-auto px-4 md:px-6">
 
         <h2 ref={titleRef} className="text-4xl md:text-5xl lg:text-6xl font-black text-white text-center mb-4">
-          Что говорят наши пациенты
+          Истории выздоровления и отзывы наших клиентов
         </h2>
 
         {/* 2GIS рейтинг */}
@@ -57,11 +57,11 @@ export default function ReviewsSection() {
           </div>
           <p className="text-white/30 text-xs mb-4">На основе 3 795 отзывов</p>
           <a
-            href="https://2gis.kz/"
+            href="https://2gis.kz/astana/firm/70000001032687222"
             target="_blank" rel="noopener noreferrer"
             className="inline-block border border-[#FFD400]/30 text-[#FFD400] text-sm font-bold px-5 py-2 rounded-full hover:bg-[#FFD400]/10 transition-colors"
           >
-            Оставить отзыв
+            Смотреть в 2GIS
           </a>
         </div>
 

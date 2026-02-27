@@ -26,12 +26,12 @@ export default function HomePage() {
       <main>
         <HeroSection openModal={open} />
         <PainSection />
-        <SolutionSection />
+        <SolutionSection openModal={open} />
         <ServicesSection openModal={open} />
-        <HowItWorksSection />
-        <StatsSection />
-        <TeamSection />
         <ReviewsSection />
+        <HowItWorksSection openModal={open} />
+        <TeamSection openModal={open} />
+        <StatsSection />
         <FAQSection />
         <CTASection openModal={open} />
       </main>

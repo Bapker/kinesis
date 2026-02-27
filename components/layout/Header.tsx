@@ -21,15 +21,19 @@ export default function Header({ openModal }: HeaderProps) {
 
   const scrollTo = (id: string) => {
     setSidebarOpen(false);
+    if (id === 'top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const navLinks = [
-    { label: 'Услуги',       id: 'services'      },
-    { label: 'Как работаем', id: 'how-it-works'   },
-    { label: 'Команда',      id: 'team'           },
-    { label: 'Отзывы',       id: 'reviews'        },
-    { label: 'Контакты',     id: 'contacts'       },
+    { label: 'Главная',      id: 'top'          },
+    { label: 'Диагностика',  id: 'how-it-works' },
+    { label: 'Специалисты',  id: 'team'         },
+    { label: 'Отзывы',       id: 'reviews'      },
+    { label: 'Контакты',     id: 'contacts'     },
   ];
 
   return (
